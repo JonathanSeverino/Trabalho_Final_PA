@@ -1,4 +1,7 @@
 #include <iostream>
+#include <fstream>
+#include <string>
+
 
 using namespace std;
 
@@ -115,6 +118,20 @@ void excluirPosicao(tLista* pLista, int pos){
     }
 }
 
+void escreve_arquivo(tLista* pLista){
+    
+    ofstream base_dados;
+
+    //Abre o arquivo ou cria caso n�o exista
+    base_dados.open("BasedeDados.txt", std::ios_base::app);
+
+    //Escreve algo
+    base_dados << "\n" << pLista;
+
+    //Fecha o arquivo
+    base_dados.close();
+}
+
 
 int main(){
 
@@ -128,6 +145,8 @@ int main(){
     incluirNofim(complex, 20, 27);
     
     imprimirLista(complex);
+
+    escreve_arquivo(complex);
 
     
 
