@@ -118,30 +118,47 @@ void excluirPosicao(tLista* pLista, int pos){
     }
 }
 
+
 void escreve_arquivo(tLista* pLista){
+    int tamanho = obterTamanho(pLista);
     
     ofstream base_dados;    
     base_dados.open("BasedeDados.txt", std::ios_base::app);
 
-    pLista -> marcador = pLista -> primeiro;
+    pLista -> marcador = pLista -> ultimo;   
 
     while(!finalLista(pLista)){
-
+        
         int complex_real = pLista -> marcador -> real;
         int complex_imag = pLista -> marcador -> imag;
-        base_dados << "/n " << complex_real << " + " << complex_imag << "b" << endl;
+        base_dados << complex_real << " + " << complex_imag << "b" << endl;  
 
-        base_dados.close();        
-             
-    }
-
-     
+        pLista -> marcador = pLista -> marcador -> proximo;    
+        
+    } 
+    base_dados.close();     
 }
+
+void le_arquivo(){
+
+    ifstream input("BasedeDados.txt");
+    string textoLido;    
+    for(string line; getline(input, line);){
+        textoLido += line;
+    }
+    
+    cout << textoLido << endl;
+    cout << endl;
+}
+
+
 
 
 int main(){
 
     tLista* complex = new tLista;
+
+    string base;
 
     inicializaLista(complex);
     
@@ -149,11 +166,13 @@ int main(){
     incluirNofim(complex, 2, 10);
     incluirNofim(complex, 100, 1);
     incluirNofim(complex, 20, 27);
-    
-    imprimirLista(complex);
 
     escreve_arquivo(complex);
+    le_arquivo();
 
+    //cout << "Tamanho da lista: " << obterTamanho(complex) << endl;
+    
+    
     
 
      return 0;
