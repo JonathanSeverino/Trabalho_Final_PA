@@ -84,39 +84,7 @@ void imprimirLista(tLista* pLista){
     }
 }
 
-void excluirPosicao(tLista* pLista, int pos){
-    tComplexos* anterior;
-    tComplexos* aux;
-    tComplexos* apagado;
 
-    if(!listaVazia(pLista)){
-        pLista -> marcador = pLista -> primeiro;
-
-        if(pos < obterTamanho(pLista)){
-
-            if(pos == 0){
-                pLista -> primeiro = pLista -> marcador -> proximo;
-
-                
-            }
-
-            else{
-                for(int i = 0; i < pos; i++){
-
-                    anterior = pLista -> marcador;
-                    pLista -> marcador = pLista -> marcador -> proximo;
-
-                    aux = pLista -> marcador -> proximo;
-                }
-
-                anterior -> proximo = aux;
-            }
-
-            apagado = pLista -> marcador;
-            free(apagado);
-        }
-    }
-}
 
 
 void escreve_arquivo(tLista* pLista){
@@ -131,7 +99,9 @@ void escreve_arquivo(tLista* pLista){
         
         int complex_real = pLista -> marcador -> real;
         int complex_imag = pLista -> marcador -> imag;
-        base_dados << complex_real << " + " << complex_imag << "b" << endl;  
+        
+        base_dados << complex_real << " + " << complex_imag << "b" << endl; 
+     
 
         pLista -> marcador = pLista -> marcador -> proximo;    
         
@@ -170,8 +140,7 @@ int main(){
     escreve_arquivo(complex);
     le_arquivo();
 
-    //cout << "Tamanho da lista: " << obterTamanho(complex) << endl;
-    
+    //cout << "Tamanho da lista: " << obterTamanho(complex) << endl;    
     
     
 
