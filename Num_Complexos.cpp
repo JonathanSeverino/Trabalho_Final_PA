@@ -5,20 +5,20 @@ using namespace std;
 
 
 struct tComplexos{
-   int xreal = 0;
-   int ximag = 0;
-   int yreal = 0;
-   int yimag = 0;
+   int real = 0;
+   int imag = 0;
+   
 
    tComplexos* proximo;  
               
 };
 
 
-tComplexos* criaNo(int item){
-    tComplexos* no = new tNo;
+tComplexos* criaNo(int x, int y){
+    tComplexos* no = new tComplexos;
 
-    no -> info = item;
+    no -> real = x;
+    no -> imag = y;
     no -> proximo = NULL;
 
     return no;
@@ -53,9 +53,9 @@ bool finalLista(tLista* pLista){
     return (pLista -> marcador == NULL);
 }
 
-void incluirNofim(tLista* pLista, int info){
+void incluirNofim(tLista* pLista, int x, int y){
     tComplexos* no;
-    no = criaNo(info);
+    no = criaNo(x, y);
 
     if(listaVazia(pLista)){
         pLista -> primeiro = no;
@@ -73,7 +73,7 @@ void imprimirLista(tLista* pLista){
     pLista -> marcador = pLista -> primeiro;
 
     while(!finalLista(pLista)){
-        int informacao = pLista -> marcador -> info;
+        int numcomplex = pLista -> marcador -> info;
         cout << "Ainformacao eh: " << informacao << endl;
 
         pLista -> marcador = pLista -> marcador -> proximo;
@@ -126,3 +126,4 @@ int main(){
     
 
      return 0;
+}
