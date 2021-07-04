@@ -93,13 +93,13 @@ void escreve_arquivo(tLista* pLista){
     ofstream base_dados;    
     base_dados.open("BasedeDados.txt", std::ios_base::app);
 
-    pLista -> marcador = pLista -> ultimo;   
+    pLista -> marcador = pLista -> primeiro;   
 
     while(!finalLista(pLista)){
         
         int complex_real = pLista -> marcador -> real;
         int complex_imag = pLista -> marcador -> imag;
-        
+
         base_dados << complex_real << " + " << complex_imag << "b" << endl; 
      
 
@@ -117,7 +117,7 @@ void le_arquivo(){
         textoLido += line;
     }
     
-    cout << textoLido << endl;
+    cout << endl << textoLido << endl;
     cout << endl;
 }
 
@@ -140,8 +140,8 @@ int main(){
     escreve_arquivo(complex);
     le_arquivo();
 
-    //cout << "Tamanho da lista: " << obterTamanho(complex) << endl;    
-    
+     
+    //imprimirLista(complex);
     
 
      return 0;
