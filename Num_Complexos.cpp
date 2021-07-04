@@ -73,8 +73,9 @@ void imprimirLista(tLista* pLista){
     pLista -> marcador = pLista -> primeiro;
 
     while(!finalLista(pLista)){
-        int numcomplex = pLista -> marcador -> info;
-        cout << "Ainformacao eh: " << informacao << endl;
+        int complex_real = pLista -> marcador -> real;
+        int complex_imag = pLista -> marcador -> imag;
+        cout << "O número complexo eh: " << complex_real << " + " << complex_imag << "b" << endl;
 
         pLista -> marcador = pLista -> marcador -> proximo;
     }
