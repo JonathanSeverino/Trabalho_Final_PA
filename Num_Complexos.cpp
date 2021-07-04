@@ -118,11 +118,14 @@ void excluirPosicao(tLista* pLista, int pos){
 
 int main(){
 
-    tLista* idades = new tLista;
+    tLista* complex = new tLista;
 
-    inicializaLista();
+    inicializaLista(complex);
 
-    cout << "O tamanho da lista eh: " << obterTamanho(idades) << endl;
+    cout << "O tamanho da lista eh: " << obterTamanho(complex) << endl;
+
+    incluirNofim(complex, 2, 10);
+    imprimirLista(complex);
 
     
 
