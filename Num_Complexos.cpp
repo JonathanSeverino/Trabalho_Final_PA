@@ -120,16 +120,22 @@ void excluirPosicao(tLista* pLista, int pos){
 
 void escreve_arquivo(tLista* pLista){
     
-    ofstream base_dados;
-
-    //Abre o arquivo ou cria caso n�o exista
+    ofstream base_dados;    
     base_dados.open("BasedeDados.txt", std::ios_base::app);
 
-    //Escreve algo
-    base_dados << "\n" << pLista;
+    pLista -> marcador = pLista -> primeiro;
 
-    //Fecha o arquivo
-    base_dados.close();
+    while(!finalLista(pLista)){
+
+        int complex_real = pLista -> marcador -> real;
+        int complex_imag = pLista -> marcador -> imag;
+        base_dados << "/n " << complex_real << " + " << complex_imag << "b" << endl;
+
+        base_dados.close();        
+             
+    }
+
+     
 }
 
 
