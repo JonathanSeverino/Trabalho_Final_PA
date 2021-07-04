@@ -121,10 +121,12 @@ int main(){
     tLista* complex = new tLista;
 
     inicializaLista(complex);
-
-    cout << "O tamanho da lista eh: " << obterTamanho(complex) << endl;
+    
 
     incluirNofim(complex, 2, 10);
+    incluirNofim(complex, 100, 1);
+    incluirNofim(complex, 20, 27);
+    
     imprimirLista(complex);
 
     
