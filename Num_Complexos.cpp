@@ -117,8 +117,8 @@ void le_arquivo(){
         textoLido += line;
     }
     
-    cout << endl << textoLido << endl;
-    cout << endl;
+    cout << textoLido << endl;
+    
 }
 
 
